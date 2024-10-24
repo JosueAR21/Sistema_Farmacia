@@ -1,0 +1,165 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: center;
+    justify-content: center;
+  }
+  .input {
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 12px;
+    font-size: 16px;
+    color: #999;
+    transition: all 0.2s ease-in-out;
+}
+.mb-5 {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input:focus + .floating-label,
+.input:not(:placeholder-shown) + .floating-label {
+  top: -25px;
+  left: 0;
+  font-size: 15px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.input::placeholder {
+  color: transparent;
+}
+.fondo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: #007bff;
+}
+.form .w-100 .btn {
+background-color: #6499E9;
+color: white;
+border: none;
+padding: 10px;
+border-radius: 5px;
+transition: background-color 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+
+}
+.form .w-100 .btn:hover{
+background-color: #4570C9;
+transition: 0.3s;
+}
+
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Ajustes para hacer el diseño más responsivo */
+  @media (max-width: 770px) {
+    h1 {
+      font-size: 2rem;
+    }
+    .logo{
+        width: 30%;
+        margin-top: -100px;
+        margin-bottom: -50px;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+    .fondo{
+        display: none;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    h6 {
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .form-label,
+    .form-control,
+    .btn {
+      font-size: 0.75rem;
+    }
+
+    img {
+      max-width: 300px;
+    }
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h6 {
+    font-size: 1rem;
+  }
+
+  .form-label,
+  .form-control,
+  .btn {
+    font-size: 1rem;
+  }
+
+  /* Estilos para el contenedor de la imagen y el texto */
+  .logo-container {
+    position: relative;
+    /* Posicionamiento relativo para el texto */
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+  }
+ 
+  .logo-container img {
+    max-width: 800px;
+    /* Aumenta el tamaño máximo */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    /* Centra verticalmente */
+    left: 50%;
+    /* Centra horizontalmente */
+    transform: translate(-50%,
+        -50%);
+    /* Ajusta la posición para centrar correctamente */
+    color: white;
+    /* Color del texto */
+    text-align: center;
+    font-weight: 700;
+    /* Estilo del texto */
+    font-size: 1.5rem;
+    /* Tamaño del texto */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /* Sombra para el texto */
+  }

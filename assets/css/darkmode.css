@@ -1,0 +1,165 @@
+
+.bodyWelcome{
+    background-color: #1d1c1c;
+    
+}
+.sidebar {
+    background-color: #1e1e1e; /* Dark sidebar */
+}
+.bodyWelcome main.content-area {
+    background-color: #131313;
+    min-height: 100vh; /* Asegura que siempre ocupe al menos toda la altura de la ventana */
+}
+
+.nav-link {
+    color: #ffffff; /* White text for nav links */
+}
+.productos .gestion-productos,
+.productos .registrar-producto,
+.productos .criterio-busqueda,
+.productos .lista-productos{
+    background-color: #1d1c1c;
+}
+.facturacion section{
+    background-color: #1d1c1c;
+}
+.lista-productos table td{
+    background-color: #1d1c1c;
+    color: rgb(177, 177, 177);
+}
+.lista-productos .search div.buscarProductos{
+    color: white;
+    border-bottom: 1px solid rgb(77, 77, 77);
+}
+.lista-productos .buscarProductos input{
+    background-color: #1d1c1c;
+}
+
+.productos h2,
+.facturacion h2,
+.facturacion h4{
+    color: white;
+}
+.criterio-busqueda .btn,
+
+.criterio-busqueda1 .btn{
+    color: white;
+    border: 1px solid rgb(63, 63, 63)
+}
+
+.nav-link.active {
+    background-color: #2b2b2b; /* Active nav link background */
+}
+/* Cambiar el color de los títulos en el menú al modo oscuro */
+.nav-item .nav-link {
+    color: white; /* Color blanco para el texto de los enlaces */
+}
+.registrar-producto select{
+    border: 1px solid rgb(102, 102, 102);
+}
+.sectionNames {
+    color: white; /* Color blanco para los títulos de las secciones */
+}
+
+/* Puedes añadir un efecto de hover opcional */
+.nav-item .nav-link:hover {
+    color: #ccc; /* Color claro en hover */
+}
+.lista-productos table th{
+    background-color: #1d1c1c;
+    border-bottom: 1px solid rgb(77, 77, 77);
+    color: rgb(218, 218, 218);
+}
+.icon-container {
+    color: #ffffff; /* Icon color */
+}
+
+main.content {
+    background-color: #131313; /* Dark content area */
+}
+
+footer {
+    background-color: #1e1e1e; /* Dark footer */
+    color: #ffffff; /* Light text for footer */
+}
+
+/* Style for charts in dark mode */
+.chartjs-render-monitor {
+    background-color: #121212; /* Dark background for charts */
+}
+.texto{
+    color: white;
+}
+
+h1,h2,h3,h4,h5,h6,label {
+    color: #ffffff; /* Light headings */
+}
+/* Estilo general para el fondo de los formularios */
+.gestion-productos,.registrar-producto, .criterio-busqueda, .lista-productos{
+    background-color: #1d1c1c;
+}
+
+
+section .productSection{
+    color: white;
+}
+
+table{
+    background-color: #242424;
+}
+.registrar-producto .input,textarea, select.form-select{
+    background-color: #1d1c1c;
+    color: #a0a0a0;
+}
+
+/* Estilos para inputs, selects y textareas */
+.registrar-producto textarea#descripcion {
+    border: 1px solid #444444; /* Bordes oscuros */
+}
+
+.registrar-producto input{
+    border-bottom: 1px solid rgb(77, 77, 77);
+}
+
+input::placeholder, textarea::placeholder {
+    color: #bbbbbb; /* Color de los placeholders */
+}
+
+/* Estilo para tablas */
+
+.registrar-producto, select.form-select, option{
+    color: rgb(182, 182, 182);
+}
+.table th {
+    background-color: #333333; /* Fondo de encabezados de tabla */
+    color: #ffffff; /* Color de texto de encabezados */
+}
+
+.table td {
+    border-color: #444444; /* Color de bordes de tabla */
+}
+
+/* Otros estilos opcionales que pueden ayudar */
+.nav-link {
+    color: #ffffff; /* Texto blanco para enlaces de navegación */
+}
+
+.nav-link.active {
+    background-color: #2b2b2b; /* Fondo para enlace activo */
+}
+
+/* Títulos y etiquetas */
+h4 {
+    color: #ffffff; /* Color para títulos de sección */
+}
+
+/* Botones */
+.btn {
+    background-color: #444444; /* Fondo oscuro para botones */
+    color: #ffffff; /* Texto blanco para botones */
+}
+
+.btn:hover {
+    background-color: #555555; /* Fondo más claro al pasar el mouse */
+}
+

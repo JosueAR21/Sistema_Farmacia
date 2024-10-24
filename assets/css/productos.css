@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+.botones2 .btn {
+    font-weight: 500;
+    font-size: 14px;
+
+}
+.bodyProduct{
+    background-color: #ffffff;
+}
+.input,
+textarea {
+    display: block;
+    width: 100%;
+    outline: none;
+}
+textarea:focus{
+    border-color: #007bff;
+}
+section h4 {
+    font-weight: 600;
+    color: rgb(58, 58, 58);
+    font-size: 20px;
+}
+
+.criterio-busqueda button {
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.flex-xl-row select {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(95, 95, 95);
+}
+
+.input,select {
+    border: none;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+    color: rgb(95, 95, 95);
+    font-weight: 500;
+    padding: 8px;
+    outline: none;
+}
+input:focus, textarea:focus {
+    border-color: #007bff; /* Color del borde al hacer clic */
+    outline: none;
+}
+textarea:focus{
+    box-shadow: 0 0 2px rgb(0, 123, 255); /* Sombra alrededor */
+}
+select {
+    font-size: 5px;
+}
+
+section {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(66, 66, 66);
+}
+
+.table td {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(95, 95, 95);
+}
+
+.container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: auto;
+    table-layout: auto;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    white-space: nowrap;
+}
+
+.gestion-productos ,.registrar-producto, .criterio-busqueda, .lista-productos{
+    background-color: white;
+}
+
+form{
+    font-size: 14px;
+}
+
+.form-label {
+    font-weight: 550;
+}
+
+.mb-3 textarea {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    height: 100px;
+    resize: none;
+}
+@media(max-width:1540px){
+    .criterio-busqueda div{
+        flex-direction: column;
+    }
+}
+@media(max-width:1540px){
+
+}

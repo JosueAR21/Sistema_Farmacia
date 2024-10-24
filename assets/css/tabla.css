@@ -1,0 +1,74 @@
+*{
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+}
+.search {
+    border: none;
+    margin-bottom: 5px;
+    outline: none;
+}
+
+.buscar {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+thead th{
+    border-right: 1px solid white;
+}
+.buscar input {
+    margin-left: 5px;
+    flex-grow: 1;
+}
+textarea{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    resize: none;
+}
+.inputModal {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.5rem 0;
+    font-size: 14px;
+}
+.table-responsive{
+    font-size: 15px;
+}
+.inputModal:focus {
+    outline: none; /* Remove default outline on focus */
+    border-bottom-color: #007bff; /* Change bottom border color on focus (optional) */
+}
+.table-responsive {
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+th {
+    padding: 8px;
+    background-color: rgb(35, 118, 201);
+    color: white;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-custom {
+    transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: rgb(70, 100, 180);
+    color: white;
+}

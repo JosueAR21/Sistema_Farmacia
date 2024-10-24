@@ -1,0 +1,271 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Mejora el manejo de padding y margen */
+  white-space: nowrap;
+}
+/* Ítem activo - fondo y color */
+.nav-item.active .nav-link, 
+.nav-item.active:hover .nav-link {
+  background-color: rgb(88, 161, 240);
+  color: white;
+}
+main{
+  height: 100vh;
+}
+/* Ícono y texto activo */
+.nav-item.active .icon-container i, 
+.nav-item.active .text-container,
+.nav-item.active:hover .icon-container i,
+.nav-item.active:hover .text-container {
+  color: white;
+}
+.sidebar{
+  overflow-y: auto;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  cursor: pointer; /* Puntero al pasar el mouse por encima */
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  display: none; /* No se muestra por defecto */
+  z-index: 998; /* Debajo del menú pero encima del contenido */
+  transition: opacity 0.3s ease-in-out;
+}
+.sidebar .logoFarm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoFarm img{
+  width: 150px;
+}
+
+.overlay.active {
+  display: block;
+}
+#toggleButton {
+  position: fixed;
+  top: 20px;
+  left: 13px;
+  z-index: 1000;
+}
+.botones {
+  background-color: #76a6ff;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+.infoDash {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 100px;
+  border-radius: 15px;
+  background-color: rgb(254, 254, 255);
+  box-shadow: 1px 1px 1px 1px rgb(226, 222, 222);
+}
+.infoDash h6 {
+  color: rgb(83, 83, 83);
+  font-size: 15px;
+}
+.info {
+  margin-bottom: 20px;
+}
+.infoDash h5 {
+  color: rgb(0, 153, 255);
+  font-weight: 700;
+}
+.botones:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+}
+
+.sidebar {
+  height: 100vh; /* Altura completa */
+  position: fixed; /* Fijo a la izquierda */
+  left: 0;
+  top: 0;
+  width: 250px; /* Ancho de la barra lateral */
+  background-color: white; /* Color de fondo */
+  padding-top: 20px; /* Espaciado superior */
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s; /* Transición al colapsar */
+}
+.logo-container {
+  display: flex; /* Usar flexbox para alinear horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  margin-left: 5px;
+}
+
+.logoFarm img {
+  max-width: 50px; /* Ajusta el tamaño del logo según sea necesario */
+  height: auto; /* Mantiene la proporción del logo */
+}
+.sidebar.hidden {
+  width: 0; /* Ocultar la barra lateral */
+  overflow: hidden; /* Esconde el contenido de la barra lateral cuando está oculta */
+}
+.content {
+  background-color: rgb(249, 252, 253);
+  margin-left: 250px; /* Espacio para la barra lateral */
+  padding: 20px; /* Espaciado interior */
+  height: 100vh;
+  transition: margin-left 0.3s; /* Transición al mover el contenido */
+}
+.content.fullwidth {
+  margin-left: 0; /* El contenido debe ocupar todo el ancho si la sidebar está oculta */
+}
+.content p {
+  font-size: 13px;
+}
+.content.hidden {
+  margin-left: 0; /* Sin margen cuando la barra lateral está oculta */
+}
+
+
+
+.nav-item:hover {
+  background-color: rgb(38, 141, 236); /* Color de fondo al pasar el ratón */
+
+}
+
+/*Tamaño para los graficos de ventas y productos*/
+#ventasChart, #productosChart {
+  max-width: 400px;
+  max-height: 200px;
+  width: 400px;
+  height: 200px;
+}
+.nav-item:last-child {
+  margin-top: auto; /* Empuja el ítem hacia el fondo del sidebar */
+  margin-bottom: 20px; /* Agrega un margen inferior si es necesario */
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 5px 15px;
+  color: rgb(66, 61, 61); /* Color inicial del texto */
+  transition: color 0.3s; /* Transición suave para el cambio de color */
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.icon-container i {
+  font-size: 20px;
+  color: rgb(119, 119, 119); /* Color inicial del ícono */
+  transition: color 0.3s; /* Transición suave para el cambio de color */
+}
+
+.text-container {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #72757a;
+  font-weight: 550;
+  transition: color 0.3s;
+}
+
+.nav-item:hover .nav-link {
+  background-color: rgba(0, 0, 0, 0.1); /* Color de fondo al pasar el ratón */
+}
+
+.nav-item:hover .nav-link,
+.nav-item:hover .icon-container i,
+.nav-item:hover .text-container {
+  color: rgb(255, 255, 255); /* Cambia el color a azul cuando se pasa el ratón */
+}
+#label_toggle{
+  position: absolute;
+  top: 80px;
+}
+
+@media (min-width: 1025px) {
+  .sidebar.hidden .form-check label{
+    display: none;
+  }
+  .overlay {
+    display: none !important;
+  }
+  .sidebar.hidden .sectionNames{
+    transition: 0.3s;
+    display: none;
+  }
+  .sidebar.hidden {
+    width: 80px; /* Ancho reducido para mostrar solo íconos */
+    overflow: hidden;
+    transition: width 0.3s;
+    margin-top: 64px;
+  }
+  .sidebar.hidden .text-container,
+  .sidebar.hidden .texto {
+    display: none;
+  }
+  .sidebar.hidden .nav-item:hover .text-container {
+    display: block; /* Mostrar el texto */
+    position: absolute; /* Coloca el texto sobre la barra lateral */
+    left: 80px; /* Alinea el texto a la derecha del ícono */
+    background-color: white; /* Color de fondo para mejor legibilidad */
+    padding: 5px 10px; /* Añadir espacio para que sea visible */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombras para resaltar el texto */
+    z-index: 1000; /* Asegurar que el texto esté por encima */
+  }
+  .content.fullwidth {
+    margin-left: 80px; /* El contenido debe ocupar el espacio adicional */
+  }
+  .sidebar.hidden + .content {
+    margin-left: 80px; /* Mantén el margen constante cuando la sidebar se oculta */
+  }
+}
+.sectionNames{
+  font-weight: 550;
+
+}
+
+
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+  .sidebar.hidden {
+    width: 0; /* En móviles, colapsar completamente el menú */
+  }
+  
+  .overlay {
+    left: 250px;
+    width: calc(100% - 250px); /* Ajusta el ancho fuera del menú */
+  }
+  .content {
+    margin-left: 0; /* Sin margen */
+  }
+  .content.fullwidth {
+    margin-left: 0; /* El contenido ocupa todo el ancho */
+  }
+  .sidebar.active {
+    width: 250px; /* Mostrar barra lateral al activarla */
+  }
+
+  .content.active {
+    margin-left: 250px; /* Margen al contenido cuando la barra lateral está activa */
+  }
+}
