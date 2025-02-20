@@ -1,0 +1,23 @@
+.detalle li{
+    font-size: 13px;
+    margin: 0px 15px 10px 0px;
+}
+#listaProductos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+#listaProductos li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#listaProductos li:hover {
+    background-color: #f0f0f0;
+}

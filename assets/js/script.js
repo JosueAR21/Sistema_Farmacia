@@ -1,9 +1,8 @@
-
 // Seleccionar elementos del DOM
 const toggleButton = document.getElementById("toggleButton");
 const sidebar = document.getElementById("sidebar");
 const content = document.getElementById("content");
-const navItems = document.querySelectorAll('.nav-item');
+const navItems = document.querySelectorAll('.nav-item1');
 const darkModeToggle = document.getElementById("darkModeToggle");
 const darkModeStylesheet = document.getElementById("dark-mode-stylesheet");
 
@@ -19,11 +18,20 @@ function applyDarkMode(isDarkMode) {
 }
 
 // Alternar la barra lateral y el contenido
-toggleButton.addEventListener("click", () => {
-    sidebar.classList.toggle("active"); // Alternar clase activa en la barra lateral
-    sidebar.classList.toggle("hidden"); // Alternar clase oculta en la barra lateral
-    content.classList.toggle("fullwidth"); // Alternar clase para que el contenido ocupe todo el ancho
+document.getElementById("toggleButton").addEventListener("click", function() {
+    const sidebar = document.querySelector(".sidebar");
+    const content = document.querySelector(".content");
+
+    sidebar.classList.toggle("hidden");
+
+    // Alterna la clase `fullwidth` para el contenido cuando el sidebar está oculto
+    if (sidebar.classList.contains("hidden")) {
+        content.classList.add("fullwidth");
+    } else {
+        content.classList.remove("fullwidth");
+    }
 });
+
 
 // Evento para el interruptor de modo oscuro
 darkModeToggle.addEventListener('change', function () {
@@ -42,114 +50,79 @@ navItems.forEach(item => {
     });
 });
 
-// Cargar contenido dinámicamente al hacer clic en un enlace
-document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('.nav-link'); // Seleccionar enlaces de navegación
+document.addEventListener('DOMContentLoaded', function () {
+    // Verificar la preferencia de modo oscuro al cargar la página
+    const darkModePreference = localStorage.getItem('darkMode') === 'true'; // Obtener la preferencia
+    applyDarkMode(darkModePreference); // Aplicar el modo oscuro
+
+    const links = document.querySelectorAll('.nav-link1'); // Seleccionar enlaces de navegación
 
     links.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+        link.addEventListener('click', function () {
+            // Primero, remueve la clase 'active' de todos los enlaces
+            links.forEach(link => link.classList.remove('active'));
 
-            const url = this.getAttribute('href'); // Obtener la URL del enlace
+            // Luego, agrega la clase 'active' al enlace actual
+            this.classList.add('active');
 
-            // Cargar contenido usando fetch
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok'); // Lanzar un error si la respuesta no es correcta
-                    }
-                    return response.text(); // Convertir la respuesta a texto
-                })
-                .then(html => {
-                    document.getElementById('content').innerHTML = html; // Cargar contenido en el contenedor
-
-                    // Reaplicar configuraciones de modo oscuro después de cargar nuevo contenido
-                    const isDarkMode = localStorage.getItem('darkMode') === 'true'; // Verificar el estado guardado
-                    applyDarkMode(isDarkMode); // Aplicar modo oscuro según la preferencia guardada
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error); // Manejar errores de la operación fetch
-                });
+            // No se evita el comportamiento predeterminado, así que navegará a la URL
         });
     });
 });
 
-// Configurar gráficos
-const ctx1 = document.getElementById("ventasChart").getContext("2d"); // Contexto para el gráfico de ventas
-const ventasChart = new Chart(ctx1, {
-    type: "bar", // Cambiar tipo según sea necesario
-    data: {
-        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"], // Etiquetas del gráfico
-        datasets: [{
-            label: "Ventas",
-            data: [120, 190, 300, 500, 200, 300], // Datos de ventas
-            backgroundColor: "skyblue", // Color de fondo
-            borderColor: "white", // Color del borde
-            borderWidth: 1, // Ancho del borde
-        }],
-    },
-    options: {
-        responsive: true, // Hacer el gráfico responsivo
-        scales: {
-            y: {
-                beginAtZero: true, // Iniciar el eje Y en cero
-            },
-        },
-    },
-});
 
-// Configurar segundo gráfico
-const ctx2 = document.getElementById("productosChart").getContext("2d"); // Contexto para el gráfico de productos
-const productosChart = new Chart(ctx2, {
-    type: "pie", // Cambiar a 'doughnut' si se prefiere
-    data: {
-        labels: ["Producto A", "Producto B", "Producto C", "Producto D"], // Etiquetas del gráfico
-        datasets: [{
-            label: "Productos",
-            data: [30, 25, 20, 25], // Datos de productos
-            backgroundColor: [
-                "rgba(255, 99, 132, 0.5)", // Colores de fondo
-                "rgba(54, 162, 235, 0.5)",
-                "rgba(255, 206, 86, 0.5)",
-                "rgba(75, 192, 192, 0.5)",
-            ],
-            borderColor: [
-                "rgba(255, 99, 132, 1)", // Colores del borde
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-            ],
-            borderWidth: 1, // Ancho del borde
-        }],
-    },
-    options: {
-        responsive: true, // Hacer el gráfico responsivo
-        plugins: {
-            legend: {
-                position: "left", // Posición de la leyenda
-            },
-            title: {
-                display: true, // Mostrar título
-                text: "Distribución de Productos", // Texto del título
-            },
-        },
-    },
-});
 
+function toggleDarkModeChart(isDarkMode) {
+    ventasChart.options.scales.x.grid.color = isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)";
+    ventasChart.options.scales.x.grid.borderColor = isDarkMode ? "#FFFFFF" : "#ccc";
+    ventasChart.options.scales.y.grid.color = isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)";
+    ventasChart.options.scales.y.grid.borderColor = isDarkMode ? "#FFFFFF" : "#ccc";
+    ventasChart.update();
+}
+
+// Configurar y cargar el modo oscuro inicial
+const darkModeToggle2 = document.getElementById("darkModeToggle");
+const savedDarkMode = localStorage.getItem("darkMode") === "true"; // Cargar preferencia del usuario
+darkModeToggle2.checked = savedDarkMode; // Marcar el checkbox si está guardado en true
+toggleDarkModeChart(savedDarkMode); // Aplicar el modo inicial al gráfico
+
+// Evento para el interruptor de modo oscuro
+darkModeToggle.addEventListener('change', function () {
+    const isDarkMode = this.checked;
+    localStorage.setItem("darkMode", isDarkMode); // Guardar preferencia en localStorage
+    toggleDarkModeChart(isDarkMode); // Aplicar los cambios del gráfico en modo oscuro
+});
 // Verificar la preferencia de modo oscuro al cargar la página
-window.onload = function() {
+window.onload = function () {
     const isDarkMode = localStorage.getItem('darkMode') === 'true'; // Obtener el estado guardado
     applyDarkMode(isDarkMode); // Aplicar modo oscuro según la preferencia guardada
+    toggleDarkModeChart(isDarkMode);
 };
 
 function confirmarAnulacion() {
     var modalEl = document.getElementById('anularModal');
     var modal = bootstrap.Modal.getInstance(modalEl);
-    modal.hide(); 
+    modal.hide();
     var toastEl = document.getElementById('toastAnulacion');
     var toast = new bootstrap.Toast(toastEl);
     toast.show();
-    setTimeout(function() {
-        toast.hide(); 
+    setTimeout(function () {
+        toast.hide();
     }, 5000);
 }
+
+
+document.getElementById('limpiarForm').addEventListener('click', function() {
+    // Obtener el formulario
+    const formulario = document.getElementById('formEditarCliente'); // Cambia 'miFormulario' al ID de tu formulario
+    
+    // Reiniciar todos los campos del formulario
+    formulario.reset();
+});
+function confirmarEliminar(idCliente) {
+    if (confirm("¿Estás seguro de que deseas eliminar este cliente? Esta acción no se puede deshacer.")) {
+        // Redirigir al controlador con el ID del cliente y la acción "delete"
+        window.location.href = `http://localhost/Ekuifarm-Frontend/controller/clienteController/clienteController.php?action=delete&id=${idCliente}`;
+    }
+}
+
